@@ -1,0 +1,26 @@
+#symbol_map {
+	top:100px;
+	bottom: 100px; 
+	left: 100px;
+	right: 100px;
+	/*height: 1000px;
+	width: 800px;*/
+}
+
+h1 {
+    font-family: sans-serif;
+	text-align: center;
+}
+
+
+/* Display the two plots side by side */
+.container {
+    display: flex;
+    justify-content: center; /* Center the plots horizontally */
+    gap: 20px; /* Space between the two plots */
+}
+
+/* Ensure that both plots have the same width */
+#map, #month {
+    width: 50%;
+}

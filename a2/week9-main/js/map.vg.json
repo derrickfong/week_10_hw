@@ -1,0 +1,66 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "width": 800,
+    "height": 400,
+    "title": "Average Rainfall In Australian Towns and Cities since 2008",
+    "projection": {
+      "type": "mercator"
+    },
+    "layer": [
+      {
+        "data": {
+          "url": "js/output.json",
+          "format": {
+            "type": "topojson",
+            "feature": "STE_2016_AUST"
+          }
+        },
+        "mark": {
+          "type": "geoshape",
+          "fill": "darkgray",
+          "stroke": "white"
+        }
+      },
+      {
+        "data": {
+          "url": "data/avg_rain.csv"
+        },
+        "mark": {
+          "type": "circle",
+          "opacity": 0.9
+        },
+        "encoding": {
+          "longitude": {
+            "field": "Longitude",
+            "type": "quantitative"
+          },
+          "latitude": {
+            "field": "Latitude",
+            "type": "quantitative"
+          },
+          "size": {
+            "field": "Average_Rainfall",
+            "type": "quantitative",
+            "title": "Rainfall Intensity (mm)",
+            "scale": {
+              "domain": [0, 6]
+            }
+          },
+          "color": {
+            "field": "Average_Rainfall",
+            "type": "quantitative",
+            "title": "Rainfall Intensity (mm)",
+            "scale": {
+              "scheme": "blues"
+            }
+          },
+          "tooltip": [
+            {"field": "Location", "type": "nominal", "title": "Location"},
+            {"field": "State", "type": "nominal", "title": "State"},
+            {"field": "Average_Rainfall", "type": "quantitative", "title": "Average Rainfall (mm)", "format": ".2f"}
+          ]
+        }
+      }
+    ]
+  }
+  
